@@ -37,7 +37,7 @@ class OrganizationPuller < Puller
 #  :name: District of Columbia
 #:url: http://dc.gov/agencies/detail.asp?id=1030
 
-			yml_file = @parse_file + ("/%08i.yml" % (data[0].to_i + 1).to_s)
+			yml_file = "%s/%08i.yml" % [@parse_file, data[0].to_i + 1]
 			#no timestamps here so caching is a little more primitive
 			#write source if it is different from cached version
 			U.write_yaml(yml_file, source) if U.fetch_yaml(yml_file) != source rescue U.write_yaml(yml_file, source)

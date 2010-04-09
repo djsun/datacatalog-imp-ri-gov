@@ -47,7 +47,7 @@ class SourcePuller < Puller
 				source[:title] = "Rhode Island Service"
 			end
 
-			yml_file = @parse_file + ("/%08i.yml" % (data[0].to_i + 1).to_s)
+			yml_file = "%s/%08i.yml" % [@parse_file, data[0].to_i + 1]
 			#if the file was not saved before save it
 			#if it was saved before and the saved timestamp is older than the new one, change it
 			#caching is handled by last update :)
