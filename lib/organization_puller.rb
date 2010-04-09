@@ -15,22 +15,14 @@ class OrganizationPuller < Puller
 		#now we need to parse each individual peace of data
 		#ok now think. I don't have any direct xml link so I am actually gathering links that point to a website that points to usefull data
 		@organization.each do |data|
-			source = 
-			{
-				:organization => {
-					:name => "District of Rhode Island"
-				},
-				:catalog_url => "http://ri.gov/data/agencies",
-				:description => "Plans, develops, and implements the use of new technology for District agencies to improve delivery of services to residents, businesses and visitors.",
-				:home_url => "http://" + data[6],
-				:name => data[3],
-				:org_type => "governmental",
-				#:organization => {
-				#	:name => "District of Rhode Island",
-				#},
-				:url => "http://" + data[6],
-				#:active_organizations
-				#:jurisditcions
+			source = {
+				:organization => { :name => "District of Rhode Island" },
+				:catalog_url  => "http://ri.gov/data/agencies",
+				:description  => "Plans, develops, and implements the use of new technology for District agencies to improve delivery of services to residents, businesses and visitors.",
+				:home_url     => "http://" + data[6],
+				:name         => data[3],
+				:org_type     => "governmental",
+				:url          => "http://" + data[6],
 			}
 
 			if source[:name] != ""
